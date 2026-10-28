@@ -4,6 +4,7 @@ import json
 import joblib
 import pandas as pd
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel, Field
 
@@ -15,6 +16,14 @@ app = FastAPI(
     title="Used Car Price Prediction API",
     description="Predict an estimated used-car selling price in Indian rupees.",
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 class CarDetails(BaseModel):
@@ -76,6 +85,7 @@ def home():
     <head>
       <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Used Car Price Predictor</title>
+      <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚗</text></svg>">
       <style>
         body{font-family:Arial,sans-serif;max-width:760px;margin:40px auto;padding:0 18px;color:#172033}
         h1{margin-bottom:8px}p{color:#526078;line-height:1.5}
