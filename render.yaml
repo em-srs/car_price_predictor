@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: used-car-price-prediction
+    runtime: python
+    buildCommand: pip install -r requirements.txt && python train.py
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
