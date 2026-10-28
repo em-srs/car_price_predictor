@@ -2,6 +2,9 @@
 
 A beginner-friendly end-to-end machine learning project that predicts the estimated selling price of a used car from its details.
 
+🚀 **Live Demo:** [https://car-price-predictor-hkae.onrender.com/](https://car-price-predictor-hkae.onrender.com/)  
+📖 **Live API Docs:** [https://car-price-predictor-hkae.onrender.com/docs](https://car-price-predictor-hkae.onrender.com/docs)
+
 ## What this project does
 
 1. Loads the included CSV dataset.
@@ -112,11 +115,17 @@ The response contains an estimated price in INR. It is a model estimate, not a d
 
 ## 5. Deploy on Render
 
+The project is deployed live on Render:
+- **Live Web App:** [https://car-price-predictor-hkae.onrender.com/](https://car-price-predictor-hkae.onrender.com/)
+- **Live Swagger Docs:** [https://car-price-predictor-hkae.onrender.com/docs](https://car-price-predictor-hkae.onrender.com/docs)
+- **Live Health Check:** [https://car-price-predictor-hkae.onrender.com/health](https://car-price-predictor-hkae.onrender.com/health)
+
+### Deployment settings reference:
 1. Push this folder to a GitHub repository.
-2. Sign in to Render and create a **New Web Service** connected to that repository.
+2. Sign in to Render and create a **New Web Service** connected to that repository (or public Git URL).
 3. Set **Build Command** to `pip install -r requirements.txt && python train.py`.
 4. Set **Start Command** to `uvicorn app.main:app --host 0.0.0.0 --port $PORT`.
-5. Choose a Python runtime supported by your dependencies and deploy.
+5. Choose Python runtime 3.11+ and deploy.
 
 `render.yaml` is included as a reference for a Render Blueprint deployment. On the free tier, service availability and sleep behaviour depend on Render's current plan.
 
