@@ -6,3 +6,4 @@ __pycache__/
 models/*.joblib
 models/model_metadata.json
 .DS_Store
+interview_guide.md

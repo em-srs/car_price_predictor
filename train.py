@@ -93,9 +93,10 @@ def main():
         predictions = pipeline.predict(X_test)
         mae = float(mean_absolute_error(y_test, predictions))
         r2 = float(r2_score(y_test, predictions))
-        results[name] = {"mae_inr": round(mae, 2), "r2": round(r2, 4)}
+        train_r2 = float(r2_score(y_train, pipeline.predict(X_train)))
+        results[name] = {"mae_inr": round(mae, 2), "r2": round(r2, 4), "train_r2": round(train_r2, 4)}
         trained[name] = pipeline
-        print(f"{name:20s} MAE = ₹{mae:,.0f} | R² = {r2:.4f}")
+        print(f"{name:20s} MAE = ₹{mae:,.0f} | R² = {r2:.4f} | train R² = {train_r2:.4f}")
 
     # MAE is the primary selection metric: lower is better.
     best_name = min(results, key=lambda name: results[name]["mae_inr"])
